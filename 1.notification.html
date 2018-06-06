@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <title>Web Components example</title>
+    <style type="text/css">
+      cstm-notification {
+        font-family: "Comic Sans MS"; /* on purpose :) */
+        display: block;
+        margin: 5px;
+        padding: 2px;
+        border-radius: 5px;
+      }
+
+      cstm-notification[type="danger"] {
+        background-color: #ed7965;
+      }
+
+      cstm-notification {
+        background-color: #97bbf4;
+      }
+
+      cstm-notification * {
+        margin: 0;
+      }
+
+      cstm-notification .close {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        cursor: pointer;
+      }
+
+      div.trombone {
+        margin-top: 10px;
+        display: none;
+      }
+    </style>
+    <script src="src/1.notification.js"></script>
+  </head>
+  <body>
+    <cstm-notification
+      title="Warning"
+      content="Somewhere, something went terribly wrong!!"
+      type="danger"
+      disposable="disposable"></cstm-notification>
+    <cstm-notification
+      title="Another warning"
+      content="But this time you cannot remove it"
+      type="danger"></cstm-notification>
+    <cstm-notification
+      title="Hello world"
+      content="I'm just a notification"></cstm-notification>
+    <div></div>
+    <hr />
+    <h4>Play with us</h4>
+<pre>
+&lt;cstm-notification
+  title="Hi"
+  content="Add me from the browser's console"
+  type="danger"
+  disposable="disposable"&gt;
+&lt;/cstm-notification&gt;
+</pre>
+<pre>
+document.querySelector('cstm-notification')
+document.querySelectorAll('cstm-notification')
+</pre>
+<pre>
+const lastDanger = [...document.querySelectorAll('cstm-notification[type=danger]')].pop()
+lastDanger.getAttribute('title')
+</pre>
+<pre>
+const firstDanger = document.querySelector('cstm-notification[type=danger]')
+firstDanger.setAttribute('title', 'Hello darkness my old friend')
+</pre>
+    <hr />
+    <button>Click here after trying the last one</button>
+    <div class="trombone">
+      <img src="./img/trombone.png" alt="Sad Trombone" />
+    </div>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelector('button').addEventListener('click', (event) => {
+          document.querySelector('div.trombone').style.display = 'block'
+        })
+      })
+    </script>
+  </body>
+</html>
+

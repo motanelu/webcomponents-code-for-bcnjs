@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Web Components example</title>
+    <style type="text/css">
+      .close {
+        color: blue;
+      }
+
+      cstm-notification .close {
+        color: white;
+      }
+    </style>
+    <script src="src/4.shadow.js"></script>
+  </head>
+  <body>
+    <cstm-notification
+      title="Warning"
+      content="Somewhere, something went terribly wrong!!"
+      type="danger"
+      id="my-notification"
+      disposable="disposable"></cstm-notification>
+    <hr>
+    <span class="close">X</span>
+  </body>
+</html>
+
